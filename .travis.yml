@@ -25,6 +25,6 @@ before_install:
   - git clone -b ${CODE_TAG} --depth 1 https://github.com/kubeflow/kubeflow.git
 
 script:
-  - cd kubeflow/components/tensorboard-controller
+  - cd kubeflow/components
   - docker login -u ${DOCKER_USER} -p ${DOCKER_PWD}
-  - docker buildx build --push --platform linux/amd64,linux/arm64 -t ${IMAGE_NAME} -f Dockerfile .
+  - docker buildx build --push --platform linux/amd64,linux/arm64 -t ${IMAGE_NAME} -f tensorboard-controller/Dockerfile .
